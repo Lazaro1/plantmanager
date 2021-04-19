@@ -1,5 +1,5 @@
 import React from 'react'
-import { SafeAreaView , Text, Image, TouchableOpacity, StyleSheet } from 'react-native'
+import { SafeAreaView, Text, Image, TouchableOpacity, StyleSheet } from 'react-native'
 
 import waterningImg from '../assets/watering.png'
 import colors from '../styles/colors';
@@ -13,19 +13,20 @@ export function Welcome() {
                 de forma fácil
             </Text>
 
-            <Image source={waterningImg} style={styles.image}/>
+            <Image source={waterningImg} style={styles.image} />
 
             <Text style={styles.subtitle}>
                 Não esqueça mais de regar suas plantas. Nós cuidamos de lembrar você
                 sempre que precisar.
             </Text>
 
-            <TouchableOpacity 
+            <TouchableOpacity
                 style={styles.button}
                 activeOpacity={0.8}
             >
-                <Text 
-                    style={styles.buttonText}>
+                <Text
+                    style={styles.buttonText}
+                >
                     >
                 </Text>
             </TouchableOpacity>
@@ -33,9 +34,9 @@ export function Welcome() {
     )
 }
 
-const styles  = StyleSheet.create({
+const styles = StyleSheet.create({
     container: {
-        flex:1,
+        flex: 1,
         alignItems: 'center',
         justifyContent: 'space-between',
         padding: 50,
