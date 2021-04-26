@@ -1,17 +1,11 @@
-import React, { useState } from 'react'
-import { SafeAreaView, Text, Image, TouchableOpacity, StyleSheet } from 'react-native'
+import React from 'react'
+import { SafeAreaView, Text, Image, TouchableOpacity, StyleSheet, Dimensions } from 'react-native'
+import { Feather } from '@expo/vector-icons'
 
 import waterningImg from '../assets/watering.png'
-import { Button } from '../components/button';
 import colors from '../styles/colors';
 
 export function Welcome() {
-
-    const [visible, setVisible] = useState(false);
-
-    function handleVisibility() {
-        setVisible(true)
-    }
 
     return (
         <SafeAreaView style={styles.container}>
@@ -20,25 +14,40 @@ export function Welcome() {
                 suas plantas {'\n'}
                 de forma fácil
             </Text>
-            
-            <Image source={waterningImg} style={styles.image} />
+
+            <Image
+                source={waterningImg}
+                style={styles.image}
+                resizeMode='contain'
+            />
 
             <Text style={styles.subtitle}>
                 Não esqueça mais de regar suas plantas. Nós cuidamos de lembrar você
                 sempre que precisar.
             </Text>
 
-            <Button title=">" />
+            <TouchableOpacity
+                style={styles.button}
+                activeOpacity={0.8}
+            >
+                <Text style={styles.buttonText} >
+                    <Feather
+                        name="chevron-right"
+                        style={styles.buttonIcon}
+                    />
+                </Text>
+            </TouchableOpacity>
 
         </ SafeAreaView>
     )
+
 }
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
-        justifyContent: 'space-between',
+        justifyContent: 'space-around',
         padding: 50,
     },
     title: {
@@ -61,14 +70,15 @@ const styles = StyleSheet.create({
         borderRadius: 16,
         marginBottom: 16,
         height: 56,
-        paddingHorizontal: 10,
+        width: 56,
     },
     image: {
-        width: 292,
-        height: 284
+        width: Dimensions.get('window').width * 0.7
+        // height: 284
     },
-    buttonText: {
-        color: colors.white,
-        fontSize: 24
+    buttonIcon: {
+        fontSize: 28,
+        color: colors.white
+
     }
 });
